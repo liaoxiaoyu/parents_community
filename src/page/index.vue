@@ -129,7 +129,7 @@ export default {
     .Login-popup-bottom{
         margin-bottom: 56px;
         width:100%;
-        background-color: #474a4f !important;
+        background-color: rgba(0 ,0, 0, 0.6);
     }
 </style>
 
