@@ -29,7 +29,7 @@
     <div v-if="activeTab === 'issue'">
         <div class="seize-seat-top"></div>
         <mu-card v-for="(item, index) in issue_data" :key="item.id">
-            <mu-list-item class="Top-list-item" :title="item.name + ' | ' + '#' + item.type" :describeText="item.date">
+            <mu-list-item class="Top-list-item" :title="item.name" :describeText="item.date">
                 <mu-avatar :src="item.icon" slot="leftAvatar"/>
                 <mu-icon value="keyboard_arrow_down" slot="right" @click="openBottomSheet(index)" />
             </mu-list-item>
@@ -284,7 +284,7 @@ export default {
         color: #9e9e9e;
     }
     .card-bottom-data{
-        display: -webkit-box; 
+        display: -webkit-box;
         display: -webkit-flex;
         display: flex;
         -webkit-box-align: center;

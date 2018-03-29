@@ -38,7 +38,7 @@ export default [
         {path: '/home',name: '主页', component: Home},
         {path: '/more',name: '更多',component: More},
         {path: '/user',name: '个人中心',component: User,},
-        {path: '/others/:name', name: '其他人的资料' ,component: OthErs},
+        {path: '/others/:name', name: '其他用户的资料' ,component: OthErs},
         {path: '/exhibition', name: '展集',component: exhibition}
       ]
     },

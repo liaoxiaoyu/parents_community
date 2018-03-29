@@ -5,7 +5,7 @@
     </mu-appbar>
     <div class="seize-seat-top"></div>
     <mu-card v-for="item in Discuss_Data" :key="item.id">
-            <mu-list-item class="Top-list-item" :title="item.name + ' | ' + '#' + item.type" :describeText="item.date">
+            <mu-list-item class="Top-list-item" :title="item.name" :describeText="item.date">
                 <mu-avatar :src="item.icon" slot="leftAvatar"/>
                 <mu-icon value="keyboard_arrow_down" slot="right" @click="openBottomSheet" />
                 </mu-icon-menu>

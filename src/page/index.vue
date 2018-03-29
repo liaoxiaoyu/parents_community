@@ -19,7 +19,7 @@
         <mu-bottom-nav-item value="home" title="社区" icon="home" to="/home" />
         <mu-bottom-nav-item value="exhibition" title="成长广场" icon="collections" to="/exhibition/atlas" />
         <mu-float-button icon="add" @click="PuBliSh" />
-        <mu-bottom-nav-item value="more" title="食谱" icon="explore" to="exhibition"/>
+        <mu-bottom-nav-item value="more" title="头条" icon="explore" to="exhibition"/>
         <mu-bottom-nav-item value="user" title="我的" icon="account_circle" />
     </mu-bottom-nav>
     </mu-paper>

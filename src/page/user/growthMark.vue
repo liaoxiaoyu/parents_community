@@ -1,10 +1,10 @@
 <template>
   <div>
     <mu-appbar title="成长印记" class="Top-Class" titleClass="titleclass">
-      <mu-icon value="format_align_center" slot="right" @click="toggle" />
-      <mu-icon value="keyboard_arrow_left" slot="left" @click="RouterOne" />
+      <mu-icon value="add" slot="right" @click="toggle" />
+      <mu-icon value="keyboard_arrow_left" slot="left" @click="RouteOne" />
     </mu-appbar>
-    <mu-timeline>
+    <mu-timeline style="margin: 16px">
       <mu-timeline-item>
         <span slot="time">2017年 6月 1日</span>
         <span slot="des">发起第一个pr</span>
@@ -59,6 +59,15 @@
     </mu-timeline>
   </div>
 </template>
+<script>
+  export default {
+      methods: {
+          RouteOne() {
+            this.$router.go(-1);
+          }
+      }
+  }
+</script>
 <style lang="less">
   .popover-class{
     width: 100%;

@@ -383,7 +383,7 @@
 </style>
 <style scoped lang="less">
   /*.mu-tabs {*/
-    /*margin-top: 56px;*/
+  /*margin-top: 56px;*/
   /*}*/
 
   .mu-paper {
@@ -464,3 +464,269 @@
     animation: fade 0.5s;
   }
 </style>
+
+
+
+<!--<template>-->
+  <!--<div>-->
+    <!--<mu-back-top :bottom="80" :right="15" :duration="1000">-->
+      <!--<mu-float-button icon="keyboard_arrow_up"/>-->
+    <!--</mu-back-top>-->
+
+    <!--<mu-appbar title="Parent Community">-->
+      <!--<mu-icon-button icon="menu" slot="left" @click="handleslideshow"/>-->
+      <!--<mu-badge :content="noReadNum" class="icon-badge" circle secondary slot="right">-->
+        <!--<mu-icon value="notifications" @click="toNotification"/>-->
+      <!--</mu-badge>-->
+      <!--&lt;!&ndash;<mu-icon-button icon="edit_mode" slot="right" @click="toNewPost"/>&ndash;&gt;-->
+    <!--</mu-appbar>-->
+
+    <!--<mu-tabs :value="activeTab" @change="handleTabChange">-->
+      <!--<mu-tab value="index" title="首页"/>-->
+      <!--<mu-tab value="kindergarten" title="幼儿院"/>-->
+      <!--<mu-tab value="primary" title="小学"/>-->
+      <!--<mu-tab value="middle" title="初中"/>-->
+      <!--<mu-tab value="hight" title="高中"/>-->
+    <!--</mu-tabs>-->
+
+    <!--<mu-refresh-control :refreshing="refreshing" :trigger="trigger" @refresh="PullTop"/>-->
+
+    <!--<div class="seize-seat-top">-->
+      <!--<mu-card v-for="item in mockList" :key="item.id">-->
+        <!--<mu-card-header :title="item.name + ' | ' + '  ' + item.city" :subTitle="item.date">-->
+          <!--<mu-avatar :src="item.url + item.urlid" slot="avatar"/>-->
+        <!--</mu-card-header>-->
+        <!--<mu-card-text>-->
+          <!--{{item.title}}-->
+          <!--<mu-badge class="demo-badge-content">#{{item.label}}</mu-badge>-->
+        <!--</mu-card-text>-->
+        <!--<mu-flexbox>-->
+          <!--<mu-flexbox-item v-for="items in item.urlid" :key="items.id">-->
+            <!--<img v-lazy="item.url + item">-->
+          <!--</mu-flexbox-item>-->
+        <!--</mu-flexbox>-->
+        <!--<mu-row class="card-bottom">-->
+          <!--<mu-col width="60" tablet="50" desktop="50">-->
+            <!--<div class="card-bottom-data">-->
+              <!--<mu-icon value="remove_red_eye" class="card-bottom-icon" :size="20"/>-->
+              <!--<p>{{item.see}}</p>-->
+            <!--</div>-->
+          <!--</mu-col>-->
+          <!--<mu-col width="20" tablet="25" desktop="25">-->
+            <!--<div class="card-bottom-data" @click="CardFavorite(item.fabulous)">-->
+              <!--<mu-icon v-if="card_bottom_favorite === item.fabulous" value="favorite" class="card-bottom-icon"-->
+                       <!--:size="20"/>-->
+              <!--<mu-icon v-else value="favorite_border" class="card-bottom-icon" :size="20"/>-->
+              <!--<p>{{item.fabulous}}</p>-->
+            <!--</div>-->
+          <!--</mu-col>-->
+          <!--<mu-col width="20" tablet="25" desktop="25">-->
+            <!--<div class="card-bottom-data">-->
+              <!--<mu-icon value="chat" class="card-bottom-icon" :size="20"/>-->
+              <!--<p>{{item.comment}}</p>-->
+            <!--</div>-->
+          <!--</mu-col>-->
+        <!--</mu-row>-->
+      <!--</mu-card>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</template>-->
+
+<!--<script>-->
+  <!--export default {-->
+    <!--data () {-->
+      <!--return {-->
+        <!--activeTab: '',-->
+        <!--mockList: '',-->
+        <!--bottomNav: 'Home',-->
+        <!--bottomNavColor: 'Home',-->
+        <!--colligate: {},-->
+        <!--seekrent: {},-->
+        <!--Arent: {},-->
+        <!--roommate: {},-->
+        <!--type_Data: {},-->
+        <!--bottomPopup: false,-->
+        <!--LaBel_Name: '',-->
+        <!--LaBel_Type: '',-->
+        <!--LaBel_Data: {},-->
+        <!--LaBel_Icon: '',-->
+        <!--refreshing: false,-->
+        <!--trigger: null,-->
+        <!--card_bottom_favorite: '',-->
+      <!--}-->
+    <!--},-->
+    <!--computed: {-->
+      <!--PhoneValue () {-->
+        <!--return this.$store.state.UserPhone;-->
+      <!--}-->
+    <!--},-->
+    <!--mounted () {-->
+      <!--this.trigger = this.$el;-->
+      <!--this.activeTab = JSON.parse(sessionStorage.getItem("Tab_Label")) || 'index';-->
+      <!--this.LoginData();-->
+    <!--},-->
+    <!--watch: {-->
+      <!--activeTab(curVal, oldVal){-->
+        <!--sessionStorage.setItem("Tab_Label", JSON.stringify(this.activeTab));-->
+        <!--this.LoginData();-->
+      <!--},-->
+      <!--topPopup (val) {-->
+        <!--if (val) {-->
+          <!--setTimeout(() => {-->
+            <!--this.topPopup = false-->
+          <!--}, 2000)-->
+        <!--}-->
+      <!--}-->
+    <!--},-->
+    <!--methods: {-->
+      <!--PullTop () {-->
+        <!--this.refreshing = true;-->
+        <!--setTimeout(() => {-->
+          <!--this.LoginData()-->
+        <!--}, 1000)-->
+      <!--},-->
+      <!--toNotification() {-->
+        <!--this.$router.push(`/more`)-->
+      <!--},-->
+
+      <!--LoginData () {-->
+        <!--const active_Tab = this.activeTab;-->
+        <!--if (active_Tab != '') {-->
+          <!--this.$loading('载入中...');-->
+        <!--}-->
+        <!--axios.get('index')-->
+          <!--.then(res => {-->
+            <!--if (res.status === 200) {-->
+              <!--this.mockList = res.data.data.list;-->
+              <!--this.refreshing = false;-->
+            <!--}-->
+            <!--let self = this;-->
+            <!--setTimeout(function () {-->
+              <!--self.closeLoading()-->
+            <!--}, 2000)-->
+          <!--})-->
+      <!--},-->
+      <!--handleTabChange (val) {-->
+        <!--this.activeTab = val;-->
+      <!--},-->
+      <!--closeLoading(){-->
+        <!--this.$loading.close();-->
+      <!--},-->
+      <!--handleChange (val) {-->
+        <!--this.bottomNav = val;-->
+      <!--},-->
+      <!--open (position) {-->
+        <!--this[position + 'Popup'] = true;-->
+      <!--},-->
+      <!--close (position) {-->
+        <!--this[position + 'Popup'] = false;-->
+      <!--},-->
+      <!--LaBelName (name, type, icon) {-->
+        <!--this.LaBel_Name = name;-->
+        <!--this.LaBel_Type = type;-->
+        <!--this.activeTab = type;-->
+        <!--this.LaBel_Icon = icon;-->
+        <!--this['bottom' + 'Popup'] = false;-->
+      <!--},-->
+      <!--CardFavorite(fabulous) {-->
+        <!--this.card_bottom_favorite = fabulous;-->
+      <!--},-->
+    <!--}-->
+  <!--}-->
+<!--</script>-->
+<!--<-->
+<!--<style lang="less">-->
+  <!--.home-popup-bottom {-->
+    <!--margin-bottom: 56px;-->
+    <!--width: 100%;-->
+    <!--background-color: #fafafa-->
+  <!--}-->
+  <!--.icon-badge {-->
+    <!--width: 20px;-->
+    <!--height: 20px;-->
+    <!--margin-right: 10px;-->
+  <!--}-->
+<!--</style>-->
+<!--<style scoped lang="less">-->
+  <!--/*.mu-tabs {*/-->
+  <!--/*margin-top: 56px;*/-->
+  <!--/*}*/-->
+
+  <!--.mu-paper {-->
+    <!--position: fixed;-->
+    <!--width: 100%;-->
+    <!--bottom: 0;-->
+    <!--table-layout: fixed;-->
+  <!--}-->
+
+  <!--.mu-card-text {-->
+    <!--padding-top: 0;-->
+  <!--}-->
+
+  <!--.mu-flexbox {-->
+    <!--padding-left: 16px;-->
+    <!--padding-right: 16px;-->
+  <!--}-->
+
+  <!--.mu-flexbox-item img {-->
+    <!--max-width: 100%;-->
+    <!--height: auto;-->
+  <!--}-->
+
+  <!--.Label-border {-->
+    <!--padding: 15px;-->
+    <!--text-align: center;-->
+  <!--}-->
+
+  <!--.mu-card {-->
+    <!--margin-top: 0.5em;-->
+  <!--}-->
+
+  <!--.demo-badge-content {-->
+    <!--background-color: #ffab00;-->
+    <!--color: #ffffff;-->
+    <!--padding-left: 4px;-->
+    <!--padding-right: 4px;-->
+  <!--}-->
+
+  <!--.card-bottom {-->
+    <!--border-top: 1px solid #eeeeee;-->
+    <!--padding: 5px 16px 5px 16px;-->
+    <!--color: #9e9e9e;-->
+  <!--}-->
+
+  <!--.card-bottom-data {-->
+    <!--display: -webkit-box;-->
+    <!--display: -webkit-flex;-->
+    <!--display: flex;-->
+    <!-- -webkit-box-align: center;-->
+    <!-- -webkit-align-items: center;-->
+    <!--align-items: center;-->
+    <!-- -webkit-box-align: start;-->
+    <!-- -webkit-align-items: flex-start;-->
+    <!--align-items: flex-start;-->
+  <!--}-->
+
+  <!--.card-bottom-data p {-->
+    <!--padding: 0;-->
+    <!--margin: 0px 0px 0px 5px;-->
+    <!-- -webkit-box-flex: 1;-->
+    <!-- -webkit-flex: 1;-->
+    <!--flex: 1;-->
+    <!--width: 0%;-->
+  <!--}-->
+
+  <!--.Login-Bottom-Close {-->
+    <!--position: fixed;-->
+    <!--right: 0;-->
+    <!--color: #9e9e9e;-->
+  <!--}-->
+
+  <!--img {-->
+    <!--transition: all 0.5s;-->
+  <!--}-->
+
+  <!--img[lazy=loaded] {-->
+    <!--animation: fade 0.5s;-->
+  <!--}-->
+<!--</style>-->

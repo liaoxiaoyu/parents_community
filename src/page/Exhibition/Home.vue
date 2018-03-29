@@ -1,39 +1,39 @@
 <template>
   <div>
-      <mu-appbar title="食谱" class="Top-Class" titleClass="titleclass" />
+      <mu-appbar title="头条" class="Top-Class" titleClass="titleclass" />
       <div class="seize-seat-top"></div>
       <slider
       :pagination-visible="true"
       :slides="swiper_data"
       :auto="0">
 
-      <!--<div style="position: relative" v-for="(slide,index) in swiper_data" :key="index">-->
-        <!--<a>-->
-          <!--<img width="100%" style="margin-top: 3em" :src="slide.url + slide.id" />-->
-          <!--<span class="title-mask" v-if="slide.title">-->
-            <!--<p>by {{slide.name}}</p>-->
-            <!--<p>{{slide.title}}</p>-->
+      <div style="position: relative" v-for="(slide,index) in swiper_data" :key="index">
+        <a>
+          <img width="100%" style="margin-top: 3em" :src="slide.url + slide.id" />
+          <span class="title-mask" v-if="slide.title">
+            <p>by {{slide.name}}</p>
+            <p>{{slide.title}}</p>
             <!--<mu-flat-button to="/exhibition/atlas" class="more-btn" labelPosition="before"  label="更多" icon="more_vert" primary/>-->
-          <!--</span>-->
-        <!--</a>-->
-      <!--</div>-->
+          </span>
+        </a>
+      </div>
     </slider>
-    <!--<div class="topic-class" @click="To_Potic">-->
-        <!--<div class="topic-class-background">-->
-            <!--<span class="topic-class-left"></span>-->
-            <!--<span class="topic-class-content">-->
-                <!--<mu-badge style="float:right;margin-top:0.3em" content="本周话题" secondary  slot="after"/>-->
-                <!--<p style="font-size: 1.2em">#我和杭州有个约会！#</p>-->
-                <!--<p style="color: #C9C9C9">我和杭州有个约会！我和杭州有个约会我和杭州有个约会</p>-->
-            <!--</span>-->
-            <!--<span class="topic-class-right">-->
-                <!--<mu-icon value="keyboard_arrow_right"/>-->
-            <!--</span>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="topic-class" @click="To_Potic">
+        <div class="topic-class-background">
+            <span class="topic-class-left"></span>
+            <span class="topic-class-content">
+                <mu-badge style="float:right;margin-top:0.3em" content="本周话题" secondary  slot="after"/>
+                <p style="font-size: 1.2em">#家长与孩子在教育中应该注意什么？#</p>
+                <p style="color: #C9C9C9">这个夏天孩子吃什么最有营养！</p>
+            </span>
+            <span class="topic-class-right">
+                <mu-icon value="keyboard_arrow_right"/>
+            </span>
+        </div>
+    </div>
     <div class="topped">
         <span class="topped-header">
-            <mu-icon value="whatshot" style="float:left;margin-top:0.35em;margin-left:.5em" color="rgb(244,67,54)"/>热门菜谱</span>
+            <mu-icon value="whatshot" style="float:left;margin-top:0.35em;margin-left:.5em" color="rgb(244,67,54)"/>热门头条</span>
         <mu-divider />
         <div class="topped-content" v-for="topped in Topped_Data" :key="topped.urlid">
             <span class="topped-content-text">
